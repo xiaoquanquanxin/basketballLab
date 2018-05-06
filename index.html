@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="misapplication-tap-highlight" content="no"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>Hello H5+</title>
+    <script type="text/javascript" src="js/update.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="css/font.css">
+    <style type="text/css">
+        #plist li {
+            padding: 0.8em;
+            border-bottom: 1px solid #eaeaea;
+        }
+        #plist li:active {
+            background: rgba(136, 136, 136, 0.44);
+        }
+        html, body {
+            background-image: url("./img/mj_bg.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #content {
+            position: relative;
+            height: 100%;
+            padding-bottom: 60px;
+            box-sizing: border-box;
+            /*background-color: greenyellow;*/
+        }
+        #mainView {
+            height: 100%;
+            position: relative;
+        }
+        #mainView li {
+            height: 100%;
+            text-align: left;
+        }
+        #mainView li iframe {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+        }
+    </style>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.78), white 80%);
+            border-top: 1px solid #858585;
+        }
+        footer ul {
+            margin-bottom: 0;
+            text-align: center;
+        }
+        footer li:active {
+            background: lightgreen;
+        }
+        footer li {
+            float: left;
+            width: 33.33%;
+            border: none;
+
+        }
+        footer li > div {
+            height: 40px;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        footer .active {
+            color: #81e1ff;
+        }
+        footer span {
+            font-size: 14px;
+        }
+        footer p {
+            font-size: 12px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body onselectstart="return false;">
+<header id="header">
+    <div id="back" style="visibility:visible" class="nvbt" onclick="showSide()">三</div>
+    <div class="nvtt">篮球实验室</div>
+    <div class="nvbt iabout" onclick="clicked('about.html','zoom-fade-out',true)"></div>
+</header>
+<div id="content" class="content" style="color: white;">
+    <ul id="mainView">
+        <li class="show " data-view="viewPage0" style="visibility: visible;">
+            <iframe src="./src/view0/mainPage.html" frameborder="0"></iframe>
+            <!--<iframe src="./originIndex.html" frameborder="0"></iframe>-->
+        </li>
+        <li class="hide" data-view="viewPage1">
+            <ul id="plist" style="list-style:none;margin:0;padding:0;text-align:left;">
+                <li id="plus/share.html" onclick="clicked(this.id)">
+                    <div class="item">分享</div>
+                </li>
+                <li id="plus/speech.html" onclick="clicked(this.id)">
+                    <div class="item">语音识别</div>
+                </li>
+                <li id="plus/storage.html" onclick="clicked(this.id)">
+                    <div class="item">本地数据存储</div>
+                </li>
+                <li id="plus/webview.html" onclick="clicked(this.id)">
+                    <div class="item">窗口管理</div>
+                </li>
+                <li id="plus/xhr.html" onclick="clicked(this.id)">
+                    <div class="item">跨域请求</div>
+                </li>
+            </ul>
+        </li>
+        <li class="hide" data-view="viewPage2">page1</li>
+    </ul>
+</div>
+<footer>
+    <ul class="clear">
+        <li data-footer="viewPage0" class="active" onclick="footerClicked(this)">
+            <div><span class="glyphicon glyphicon-user"></span>
+                <p>训练数据</p></div>
+        </li>
+        <li data-footer="viewPage1" onclick="footerClicked(this)">
+            <div><span class="glyphicon glyphicon-user"></span>
+                <p>开始训练</p></div>
+        </li>
+        <li data-footer="viewPage2" onclick="footerClicked(this)">
+            <div><span class="glyphicon glyphicon-user"></span>
+                <p>训练计划</p></div>
+        </li>
+    </ul>
+</footer>
+</body>
+<script type="text/javascript" src="js/immersed.js"></script>
+<script type="text/javascript" src="js/shortcut.js"></script>
+<script type="text/javascript" src="js/fastClick.js"></script>
+<script type="text/javascript" data-custom="'自定义左侧栏'">
+    var ws = null, wc = null;
+
+    // 扩展API加载完毕，现在可以正常调用扩展API
+    function plusReady() {
+        ws = plus.webview.currentWebview();
+        // 用户点击后
+        ws.addEventListener("maskClick", function () {
+            wc.close("auto");
+        }, false);
+    }
+
+    // 判断扩展API是否准备，否则监听"plusready"事件
+    if (window.plus) {
+        plusReady();
+    } else {
+        document.addEventListener("plusready", plusReady, false);
+    }
+
+    // 显示侧滑页面
+    function showSide() {
+        // 防止快速点击可能导致多次创建
+        if (wc) {
+            return;
+        }
+        // 开启遮罩
+        ws.setStyle({mask: "rgba(0,0,0,0.5)"});
+        // 创建侧滑页面
+        wc = plus.webview.create("./src/slider_page.html", "side", {right: "20%", width: "80%", popGesture: "none"});
+        // 侧滑页面关闭后关闭遮罩
+        wc.addEventListener('close', function () {
+            ws.setStyle({mask: "none"});
+            wc = null;
+        }, false);
+        // 侧滑页面加载后显示（避免白屏）
+        wc.addEventListener("loaded", function () {
+            wc.show("slide-in-left", 200);
+        }, false);
+    }
+</script>
+<script type="text/javascript">
+    var mainView = document.getElementById("mainView");
+    var mainViewList = mainView.children;
+    if (window.immersed) {
+        mainView.style.height = mainView.clientHeight - window.immersed + "px";
+    }
+
+    function footerClicked(target) {
+        var siblings = target.parentNode.children;
+        for (var i = 0; i < siblings.length; i++) {
+            siblings[i].className = "";
+            if (mainViewList[i].dataset.view === target.dataset.footer) {
+                mainViewList[i].className = "show"
+            } else {
+                mainViewList[i].className = "hide"
+            }
+        }
+        target.className = "active";
+    }
+</script>
+</html>

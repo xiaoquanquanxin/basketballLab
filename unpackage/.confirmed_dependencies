@@ -1,0 +1,297 @@
+{
+	"index.html": {
+		"resources": [
+			"css/common.css",
+			"js/update.js",
+			"js/shortcut.js",
+			"js/immersed.js",
+			"img/mj_bg.jpg",
+			"js/fastClick.js",
+			"js/index.js",
+			"css/reset.css",
+			"font/font.css",
+			"fonts/glyphicons-halflings-regular.woff2",
+			"css/font/font.css",
+			"css/font.css",
+			"src/view0/mainPage.html",
+			"js/common.js",
+			"originIndex.html"
+		],
+		"refer": [
+			"plus/accelerometer.html",
+			"about.html",
+			"plus/geolocation.html",
+			"plus/xhr.html",
+			"plus/webview.html",
+			"plus/njs.html",
+			"plus/speech.html",
+			"plus/payment.html",
+			"plus/navigator.html",
+			"plus/barcode.html",
+			"plus/message.html",
+			"plus/audio.html",
+			"plus/device.html",
+			"plus/camera.html",
+			"plus/events.html",
+			"plus/file.html",
+			"plus/gallery.html",
+			"plus/maps.html",
+			"plus/nativeobj.html",
+			"plus/nativeui.html",
+			"plus/orientation.html",
+			"plus/oauth.html",
+			"plus/proximity.html",
+			"plus/push.html",
+			"plus/statistic.html",
+			"plus/storage.html",
+			"plus/runtime.html",
+			"plus/share.html",
+			"src/slider_page.html"
+		]
+	},
+	"plus/accelerometer.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		],
+		"refer": [
+			"plus/accelerometer_shake.html"
+		]
+	},
+	"about.html": {
+		"resources": [
+			"js/common.js",
+			"icon.png",
+			"css/common.css"
+		]
+	},
+	"plus/geolocation.html": {
+		"resources": [
+			"js/common.js"
+		]
+	},
+	"plus/webview_new.html": {
+		"resources": [
+			"img/ui.png"
+		]
+	},
+	"plus/webview_animation.html": {
+		"refer": [
+			"plus/webview_new.html"
+		]
+	},
+	"plus/webview.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		],
+		"refer": [
+			"plus/webview_embed.html",
+			"plus/webview_float.html",
+			"plus/webview_animation.html",
+			"plus/webview_pulltorefresh.html",
+			"plus/webview_mask.html",
+			"plus/webview_pullhead_custom.html"
+		]
+	},
+	"plus/webview_pullhead_custom.html": {
+		"resources": [
+			"img/pull_fresh.png",
+			"img/pull_arrow.png",
+			"plus/webview_pullrefresh_custom.html"
+		],
+		"refer": [
+			"plus/webview_pullrefresh_custom.html"
+		]
+	},
+	"plus/navigator.html": {
+		"refer": [
+			"plus/navigator_status.html"
+		]
+	},
+	"plus/barcode.html": {
+		"resources": [
+			"img/barcode.png"
+		]
+	},
+	"plus/file.html": {
+		"resources": [
+			"img/fdisk.png",
+			"img/fup.png",
+			"js/common.js",
+			"img/ffile.png",
+			"img/fdir.png"
+		],
+		"refer": [
+			"plus/doc.html"
+		]
+	},
+	"plus/doc.html": {
+		"refer": [
+			"doc/io.html",
+			"doc/runtime.html"
+		]
+	},
+	"doc/io.html": {
+		"resources": [
+			"doc/res/doc.css",
+			"doc/res/prettify.js",
+			"doc/res/prettify.sons.css",
+			"doc/res/doc.js"
+		]
+	},
+	"plus/gallery.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"plus/audio.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"plus/maps_map.html": {
+		"resources": [
+			"css/common.css",
+			"plus/maps_map_sub.html"
+		],
+		"refer": [
+			"plus/maps_map_sub.html"
+		]
+	},
+	"plus/maps.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		],
+		"refer": [
+			"plus/maps_map.html"
+		]
+	},
+	"plus/message.html": {
+		"resources": [
+			"css/common.css",
+			"js/common.js"
+		]
+	},
+	"plus/nativeobj.html": {
+		"refer": [
+			"plus/nativeobj_animation.html"
+		],
+		"resources": [
+			"js/common.js"
+		]
+	},
+	"plus/nativeui.html": {
+		"refer": [
+			"plus/nativeui_waiting.html"
+		],
+		"resources": [
+			"js/common.js"
+		]
+	},
+	"plus/oauth.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"plus/orientation.html": {
+		"refer": [
+			"plus/orientation_level.html",
+			"plus/orientation_compass.html"
+		]
+	},
+	"plus/orientation_level.html": {
+		"resources": [
+			"img/orientationl.png",
+			"img/orientationbg.png",
+			"img/orientationb.png"
+		]
+	},
+	"plus/orientation_compass.html": {
+		"resources": [
+			"img/orientationa.png",
+			"img/orientationc.png"
+		]
+	},
+	"plus/accelerometer_shake.html": {
+		"resources": [
+			"img/shake/1.jpg",
+			"img/shakedown.png",
+			"img/shakeup.png"
+		]
+	},
+	"plus/webview_mask.html": {
+		"refer": [
+			"plus/webview_mask_side.html"
+		]
+	},
+	"plus/storage.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"plus/runtime.html": {
+		"refer": [
+			"plus/runtime_launch.html",
+			"plus/doc.html"
+		],
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"plus/share.html": {
+		"resources": [
+			"js/common.js",
+			"img/add.png",
+			"css/common.css"
+		]
+	},
+	"doc/runtime.html": {
+		"resources": [
+			"doc/res/doc.css",
+			"doc/res/prettify.js",
+			"doc/res/prettify.sons.css",
+			"doc/res/doc.js"
+		]
+	},
+	"plus/events.html": {
+		"resources": [
+			"js/common.js"
+		]
+	},
+	"plus/xhr.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"plus/webview_float.html": {
+		"resources": [
+			"img/ui.png"
+		]
+	},
+	"plus/speech.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"src/slider_page.html": {
+		"resources": [
+			"js/common.js",
+			"css/reset.css",
+			"css/common.css"
+		]
+	},
+	"plus/device.html": {
+		"resources": [
+			"js/common.js"
+		]
+	}
+}
