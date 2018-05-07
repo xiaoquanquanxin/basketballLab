@@ -19,3 +19,11 @@ B.计划量,平均值,最高值,最低值,总数
 
 项目总结
 在immersed.js里可以通过navigator.userAgent获取手机信号栏的高度,从而设置div的距顶部高度
+
+
+嵌入iframe是一个作死的选择，太tm恶心了
+iframe的window里面不能有首页的手机事件，但是调用的事件还必须是首页的事件。
+比如主页引用了index.js,这个window里面有一个clicked事件函数用于触发弹出一个新窗口。
+那么你要在iframe里面调用parent.clicked。
+因为你不能引用和主页相同的js，否则会包含和主页相同的手机事件。比如触发两次返回什么的。
+最好是top.clicked。

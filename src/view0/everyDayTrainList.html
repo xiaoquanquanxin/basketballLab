@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>Hello H5+</title>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
+    <style type="text/css">
+        .display {
+            width: 100%;
+            height: 100%;
+            display: none;
+            text-align: center;
+            padding-top: 30%;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .button {
+            text-align: left;
+            padding-left: 10px;;
+        }
+
+        .dlist table {
+            width: 100%;
+            border: none;
+            background-color: black;
+        }
+
+        .ditem {
+
+        }
+
+        .ditem td {
+            padding: 0;;
+            background-color: white;
+        }
+
+        .ditem td:first-child {
+
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="nvbt iback" onclick="back()"></div>
+    <div class="nvtt">每日训练</div>
+    <div class="nvbt idoc hide"></div>
+</header>
+<div id="dcontent" class="dcontent">
+    <br/>
+    <div class="button"><span style="padding-right: 5px;">训练日期</span>:<span style="padding-left: 10px">2018年5月7日</span>
+    </div>
+    <div class="button"><span style="padding-right: 5px;">训练时间</span>:<span style="padding-left: 10px">1hour</span>
+    </div>
+    <div class="dlist">
+        <table border="0" cellpadding="1" cellspacing="1">
+            <tr class="ditem">
+                <td>类型</td>
+                <td>出手</td>
+                <td>命中</td>
+                <td>命中率</td>
+            </tr>
+            <tr class="ditem">
+                <td>1</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr class="ditem">
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr class="ditem">
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+<div id="output">
+    Zip管理压缩文件，用于Zip文件的压缩与解压缩。
+</div>
+<div id='display' class="display" onclick="this.style.display='none';">
+</div>
+</body>
+<script type="text/javascript" src="../../js/immersed.js"></script>
+</html>
