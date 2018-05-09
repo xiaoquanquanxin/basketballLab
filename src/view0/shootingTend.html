@@ -22,6 +22,32 @@
             overflow: hidden;
         }
 
+        .button {
+            text-align: left;
+            padding-left: 10px;;
+        }
+
+        #wrap {
+            margin: 10px;
+            overflow: auto;
+            padding-bottom: 30px;
+            position: relative;
+        }
+
+        #chart {
+            min-width: 400px;
+            width: 100%;
+            margin: auto;
+            height: 300px;;
+        }
+
+        #wrapMask {
+            position: absolute;
+            width: 100%;
+            height: 100%;;
+            top: 0;
+            left: 0;
+        }
     </style>
 </head>
 <body>
@@ -32,19 +58,47 @@
 </header>
 <div id="dcontent" class="dcontent">
     <br/>
-    <div class="button" >训练日期</div>
-    <div class="button" >训练时间</div>
-    <ul class="dlist">
-        <li class="ditem" onclick="compress();">压缩文件</li>
-        <li class="ditem" onclick="decompress();">解压文件</li>
-        <li class="ditem" onclick="clearZip();">清理数据</li>
-    </ul>
-</div>
-<div id="output">
-    Zip管理压缩文件，用于Zip文件的压缩与解压缩。
-</div>
-<div id='display' class="display" onclick="this.style.display='none';">
+    <div class="button"><span style="padding-right: 5px;">训练日期</span>:<span style="padding-left: 10px">2018年5月7日</span>
+    </div>
+    <div class="button"><span style="padding-right: 5px;">训练时间</span>:<span style="padding-left: 10px">1hour</span>
+    </div>
+    <p style="text-align: center">慕斯的命中率</p>
+    <div id="wrap">
+        <div id="chart"></div>
+        <div id="wrapMask"></div>
+    </div>
 </div>
 </body>
 <script type="text/javascript" src="../../js/immersed.js"></script>
+<script type="text/javascript" src="../../js/flotr2.min.js"></script>
+<script>
+    var wins = [[0, 13], [1, 11], [2, 15], [3, 15], [4, 18], [5, 21], [6, 28],[7,56],[8,15]];
+    var years = [[0, "a"], [1, "b"], [2, "c"], [3, "d"], [4, "e"], [5, "f"], [6, "g"], [7, "f"], [8, "g"]];
+    var chart = document.getElementById("chart");
+    chart.style.width = wins.length * 50 + 'px';
+    var bars = {
+        show: true,
+        barWidth: 0.81,
+        shadowSize: 0,
+        fillOpacity: 10,
+        lineWidth: 0,
+    }
+    Flotr.draw(chart, [wins], {
+//        title: "慕斯的命中率",
+        bars:bars,
+        colors: ["#94AFD2"],
+        yaxis: {
+            min: 0,
+            tickDecimals: 0,
+        },
+        xaxis: {
+            ticks: years,
+        },
+        grid: {
+            horizontalLines: false,
+            verticalLines: false,
+        }
+    });
+
+</script>
 </html>
