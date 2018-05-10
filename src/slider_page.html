@@ -9,17 +9,54 @@
     <script type="text/javascript" src="../js/common.js"></script>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
-    <style> 
+    <link rel="stylesheet" href="../css/font.css">
+    <style>
         body {
             position: relative;
         }
+
         .slider_header {
-            height: 180px;
+            height: auto;
             position: relative;
         }
-        .slider_content {
+
+        .slider_header>div {
+            position: relative;
+            padding: 20px;
+            padding-top: 40px;;
+        }
+
+        .person-header {
+            height:60px;
+            width:100%;
+            display: table;
+        }
+        .person-header>*{
+            text-align: left;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .person-header>span{
+            text-align: right;
+        }
+        .person-header img {
+           width:80px;
+            height:80px;
+            border-radius: 50%;;
+        }
+
+        .slider_header p {
 
         }
+
+        .slider_header p span {
+
+        }
+
+        .motto {
+            text-align: left;
+        }
+
         .slider_footer {
             bottom: 0;
             height: 60px;
@@ -27,12 +64,15 @@
             width: 100%;
             border-top: 1px solid crimson;
         }
+
         .slider_content ul {
             padding-top: 30px;
         }
+
         .slider_content li {
 
         }
+
         .slider_content li div {
             width: 80%;
             margin: auto;
@@ -43,33 +83,47 @@
             background: no-repeat right center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAsCAYAAAB/nHhDAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKwwAACsMBNCkkqwAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNC8yOC8xMqLz6JEAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABJ0lEQVRYhe3Wv6rCMBQG8C/VN1AEd3HSzuYO3jr4knkY0UE62xTBcp9A8A0uHhc72CZp/lQQyZmT7xfSJKeMiPDOSt6aHoEIRKAbkLKioqiCrroWkLKi+51ARAhBlEAdXlcI0gLK8u8lPBRpAYvFjCUJUw72QZRbtFzOe0O0H7kvxHhM83yfhiJdF+2c5/utCTmdLnS93rQQs2mZQogN59lOdbrqmk7HmExGrZVYAU9kzXl2cEWsgSfys1r9Hk1TmogTAABFcTFOaQJOr6mUlVO4E9B8n2zCrQHfcAAYmoKFEAPOs39dOGMMaTpXX5J6jGlTTSu3CQcsGk5IuBboK1wJ6BqOT7gS0DUcn3AlALR7gW84YHGKiOAd3gn0UV/+6xiBCHwG8AByzMrOPKV7sAAAAABJRU5ErkJggg==);
             background-size: 12px 22px;
         }
-    </style>
-    <style>
-        .slider_footer ul {
 
+        .slider_content .list {
+            padding-left: 0.5em;
+            line-height: 20px;
+            display: inline-block;
+        }
+
+        .slider_footer ul {
             padding-left: 10px;
         }
+
         .slider_footer li {
             float: left;
             padding-top: 10px;
             padding-right: 10px;
         }
+
+
     </style>
 </head>
 <body>
 <header class="slider_header">
+    <div>
+        <div class="person-header">
+            <img src="../img/5.jpg" alt=""><span>zsb练扣篮</span>
+        </div>
 
+        <p class="person-info clear"><span class="fl">双能后卫</span><span>5'9''</span><span class="fr">60kg</span></p>
+        <p class="motto">生命不息，扣篮不止</p>
+    </div>
 </header>
 <main class="slider_content">
     <ul>
         <li>
-            <div>我的个性签名</div>
+            <div><span class="glyphicon glyphicon-calendar"></span><span class="list">训练日历</span></div>
         </li>
         <li>
-            <div>我的个性签名</div>
+            <div><span class="glyphicon glyphicon-flag"></span><span class="list">打卡(tiě)</span></div>
         </li>
         <li>
-            <div>我的个性签名</div>
+            <div><span class="glyphicon glyphicon-cog"></span><span class="list">设置</span></div>
         </li>
     </ul>
 </main>
