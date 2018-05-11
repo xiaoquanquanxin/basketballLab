@@ -6,10 +6,10 @@
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
     <title>Hello H5+</title>
-    <script type="text/javascript" src="../js/common.js"></script>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
-    <link rel="stylesheet" href="../css/font.css">
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="../../css/font.css">
     <style>
         body {
             position: relative;
@@ -20,28 +20,31 @@
             position: relative;
         }
 
-        .slider_header>div {
+        .slider_header > div {
             position: relative;
             padding: 20px;
             padding-top: 40px;;
         }
 
         .person-header {
-            height:60px;
-            width:100%;
+            height: 60px;
+            width: 100%;
             display: table;
         }
-        .person-header>*{
+
+        .person-header > * {
             text-align: left;
             display: table-cell;
             vertical-align: middle;
         }
-        .person-header>span{
+
+        .person-header > span {
             text-align: right;
         }
+
         .person-header img {
-           width:80px;
-            height:80px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;;
         }
 
@@ -107,9 +110,8 @@
 <header class="slider_header">
     <div>
         <div class="person-header">
-            <img src="../img/5.jpg" alt=""><span>zsb练扣篮</span>
+             <img src="../../img/5.jpg" alt="" data-aim="sliderPersonDetails.html" onclick="top.clicked(this.dataset.aim)"><span>zsb练扣篮</span>
         </div>
-
         <p class="person-info clear"><span class="fl">双能后卫</span><span>5'9''</span><span class="fr">60kg</span></p>
         <p class="motto">生命不息，扣篮不止</p>
     </div>
@@ -141,5 +143,48 @@
     </ul>
 </footer>
 
+<script>
+    var ws = null, wc = null;
+
+    // 扩展API加载完毕，现在可以正常调用扩展API
+    function plusReady() {
+        ws = plus.webview.currentWebview();
+        // 用户点击后
+        ws.addEventListener("maskClick", function () {
+            wc.close("auto");
+        }, false);
+    }
+
+    // 判断扩展API是否准备，否则监听"plusready"事件
+    if (window.plus) {
+        plusReady();
+    } else {
+        document.addEventListener("plusready", plusReady, false);
+    }
+
+//    function showPersonDetails() {
+//        // 防止快速点击可能导致多次创建
+//        if (wc) {
+//            return;
+//        }
+//        // 开启遮罩
+//        ws.setStyle({mask: "rgba(0,0,0,0.5)"});
+//        // 创建侧滑页面
+//        wc = plus.webview.create("./sliderPersonDetails.html", "side", {
+//            right: "20%",
+//            width: "80%",
+//            popGesture: "none"
+//        });
+//        // 侧滑页面关闭后关闭遮罩
+//        wc.addEventListener('close', function () {
+//            ws.setStyle({mask: "none"});
+//            wc = null;
+//        }, false);
+//        // 侧滑页面加载后显示（避免白屏）
+//        wc.addEventListener("loaded", function () {
+//            wc.show("slide-in-left", 200);
+//        }, false);
+//    }
+</script>
 </body>
 </html>

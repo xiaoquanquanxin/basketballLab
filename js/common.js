@@ -336,10 +336,10 @@
                 var adv = Node.prototype.addEventListener;
                 if (type === 'click') {
                     adv.call(layer, type, callback.hijacked || (callback.hijacked = function (event) {
-                        if (!event.propagationStopped) {
-                            callback(event);
-                        }
-                    }), capture);
+                            if (!event.propagationStopped) {
+                                callback(event);
+                            }
+                        }), capture);
                 } else {
                     adv.call(layer, type, callback, capture);
                 }

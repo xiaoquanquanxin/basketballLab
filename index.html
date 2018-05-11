@@ -173,7 +173,7 @@
         // 开启遮罩
         ws.setStyle({mask: "rgba(0,0,0,0.5)"});
         // 创建侧滑页面
-        wc = plus.webview.create("./src/slider_page.html", "side", {right: "20%", width: "80%", popGesture: "none"});
+        wc = plus.webview.create("./src/viewSlider/sliderMainPage.html", "side", {right: "20%", width: "80%", popGesture: "none"});
         // 侧滑页面关闭后关闭遮罩
         wc.addEventListener('close', function () {
             ws.setStyle({mask: "none"});
