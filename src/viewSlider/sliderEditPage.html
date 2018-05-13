@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>用户资料编辑界面</title>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
+    <style type="text/css">
+        .display {
+            width: 100%;
+            height: 100%;
+            display: none;
+            text-align: center;
+            padding-top: 30%;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            overflow: hidden;
+        }
+        .button {
+            text-align: left;
+            padding-left: 10px;;
+        }
+        .dlist table {
+            width: 100%;
+            border: none;
+            background-color: black;
+        }
+        .ditem {
+
+        }
+        .ditem td {
+            padding: 0;;
+            background-color: white;
+        }
+        .dcontent {
+            background-color: rgb(241, 241, 241);
+            padding-bottom: 0;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        #plist {
+            height: 100%;
+            overflow: auto;
+            box-sizing: border-box;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            background: white;
+            border-color: rgb(234, 234, 234);
+            border-width: 1px 0;
+        }
+        #plist li {
+            padding: 0.8em;
+            border-bottom: 1px solid #eaeaea;
+        }
+        #plist li:active {
+            background: rgba(199, 223, 255, 0.47);
+        }
+        #plist .item {
+            display: table;
+            width: 100%;
+        }
+        #plist .item.no_bg {
+            background: transparent;
+        }
+        #plist .item span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        #plist .item span:first-child {
+            width: 5em;
+        }
+        #plist .editabled:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="nvbt iback" onclick="back()"></div>
+    <div class="nvtt">编辑</div>
+    <div class="nvbt idoc hide"></div>
+</header>
+<div id="dcontent" class="dcontent">
+    <ul id="plist">
+        <li>
+            <div class="item no_bg"><span>个人说明</span><span class="editabled">非我放假哦我解耦我阿尔法就饿哦我安慰法奇偶IE我</span></div>
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="../../js/immersed.js"></script>
+<script type="text/javascript" src="../../js/fastClick.js"></script>
+<script>
+
+</script>
+
+</html>

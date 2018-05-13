@@ -5,131 +5,332 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
-    <title>Hello H5+</title>
+    <title>用户资料编辑界面</title>
     <script type="text/javascript" src="../../js/common.js"></script>
-    <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="../../css/font.css">
-    <style>
-        body {
-            position: relative;
-        }
-
-        .slider_header {
-            height: auto;
-            position: relative;
-        }
-
-        .slider_header > div {
-            position: relative;
-            padding: 20px;
-            padding-top: 40px;;
-        }
-
-        .person-header {
-            height: 60px;
+    <style type="text/css">
+        .display {
             width: 100%;
-            display: table;
+            height: 100%;
+            display: none;
+            text-align: center;
+            padding-top: 30%;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            overflow: hidden;
         }
-
-        .person-header > * {
+        .button {
             text-align: left;
+            padding-left: 10px;;
+        }
+        .dlist table {
+            width: 100%;
+            border: none;
+            background-color: black;
+        }
+        .ditem {
+
+        }
+        .ditem td {
+            padding: 0;;
+            background-color: white;
+        }
+        .dcontent {
+            background-color: rgb(241, 241, 241);
+            padding-bottom: 0;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        #plist {
+            height: 100%;
+            overflow: auto;
+            box-sizing: border-box;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            background: white;
+            border-color: rgb(234, 234, 234);
+            border-width: 1px 0;
+        }
+        #plist li {
+            padding: 0.8em;
+            border-bottom: 1px solid #eaeaea;
+        }
+        #plist li:active {
+            background: rgba(199, 223, 255, 0.47);
+        }
+        #plist .item {
+            display: table;
+            width: 100%;
+        }
+        #plist .item.no_bg {
+            background: transparent;
+        }
+        #plist .item span {
             display: table-cell;
             vertical-align: middle;
         }
-
-        .person-header > span {
-            text-align: right;
+        #plist .item span:first-child {
+            width: 5em;
         }
-
-        .person-header img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;;
+        #plist .editabled:focus {
+            outline: none;
         }
-
-        .slider_header p {
-
-        }
-
-        .slider_header p span {
-
-        }
-
-        .motto {
-            text-align: left;
-        }
-
-        .slider_footer {
+    </style>
+    <style>
+        #mySelectorMask {
+            width: 100%;
+            height: 100%;
+            position: absolute;
             bottom: 0;
-            height: 60px;
+            left: 0;
+            background-color: rgba(156, 156, 156, 0.44);
+        }
+        #mySelectorWrap {
+            position: absolute;
+            bottom: -160px;
+            width: 100%;
+            height: 160px;
+            background-color: white;
+            z-index: +1;
+        }
+        .mSP {
+            border-top: 1px solid crimson;
+            border-bottom: 1px solid crimson;
+            margin: 0;
+            line-height: 36px;
+            text-align: center;
+            position: relative;
+        }
+        .mSP span:last-child {
+            position: absolute;
+            color: red;
+            right: 10px;
+        }
+        #mySelectorList {
+            height: 124px;
+            overflow: auto;
+            position: relative;
+            background: transparent;
+        }
+        #mySelectorList > ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            line-height: 40px;
+            background: transparent;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        #mySelectorResult {
             position: absolute;
             width: 100%;
-            border-top: 1px solid crimson;
+            height: 40px;
+            border-top: 1px solid lightcoral;
+            border-bottom: 1px solid lightcoral;
+            z-index: -1;
+            background-color: lightskyblue;
+            top: 80px;
+            line-height: 14px;
+            padding: 10px 40px 0;
+
+            box-sizing: border-box;
         }
-
-        .slider_content ul {
-            padding-top: 30px;
+        #mySelectorResult span {
+            line-height: 14px;
         }
-
-        .slider_content li {
-
-        }
-
-        .slider_content li div {
-            width: 80%;
-            margin: auto;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            font-size: 20px;
-            font-weight: 100;
-            background: no-repeat right center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAsCAYAAAB/nHhDAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKwwAACsMBNCkkqwAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNC8yOC8xMqLz6JEAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABJ0lEQVRYhe3Wv6rCMBQG8C/VN1AEd3HSzuYO3jr4knkY0UE62xTBcp9A8A0uHhc72CZp/lQQyZmT7xfSJKeMiPDOSt6aHoEIRKAbkLKioqiCrroWkLKi+51ARAhBlEAdXlcI0gLK8u8lPBRpAYvFjCUJUw72QZRbtFzOe0O0H7kvxHhM83yfhiJdF+2c5/utCTmdLnS93rQQs2mZQogN59lOdbrqmk7HmExGrZVYAU9kzXl2cEWsgSfys1r9Hk1TmogTAABFcTFOaQJOr6mUlVO4E9B8n2zCrQHfcAAYmoKFEAPOs39dOGMMaTpXX5J6jGlTTSu3CQcsGk5IuBboK1wJ6BqOT7gS0DUcn3AlALR7gW84YHGKiOAd3gn0UV/+6xiBCHwG8AByzMrOPKV7sAAAAABJRU5ErkJggg==);
-            background-size: 12px 22px;
-        }
-
-        .slider_content .list {
-            padding-left: 0.5em;
-            line-height: 20px;
-            display: inline-block;
-        }
-
-        .slider_footer ul {
-            padding-left: 10px;
-        }
-
-        .slider_footer li {
-            float: left;
-            padding-top: 10px;
-            padding-right: 10px;
-        }
-
-
     </style>
 </head>
 <body>
-<header class="slider_header">
-    feaw
+<header id="header">
+    <div class="nvbt iback" onclick="back()"></div>
+    <div class="nvtt">编辑资料</div>
+    <div class="nvbt idoc hide"></div>
 </header>
-<main class="slider_content">
-    fewa
-</main>
-<footer class="slider_footer">
-    <ul class="clear">
+<div id="dcontent" class="dcontent">
+    <ul id="plist">
         <li>
-            <div><img src="" alt=""><span>设置</span></div>
+            <div class="item no_bg"><span>昵称</span><span class="editabled">NCAA历史第一人</span></div>
         </li>
         <li>
-            <div><img src="" alt=""><span>白天</span></div>
+            <div class="item no_bg"><span>球队</span><span class="editabled">洛杉矶湖人队</span></div>
         </li>
         <li>
-            <div><img src="" alt=""><span>北京</span></div>
+            <div class="item"><span>性别</span><span class="mySelector" data-select="sex">男</span></div>
         </li>
+        <li>
+            <div class="item"><span>生日</span><span class="mySelector" data-select="birthday">1988-01-02</span></div>
+        </li>
+        <li>
+            <div class="item"><span>国籍</span><span class="mySelector" data-select="nationality">中国</span></div>
+        </li>
+        <li>
+            <div class="item"><span>位置</span><span class="mySelector" data-select="position">PG</span></div>
+        </li>
+        <li>
+            <div class="item"><span>身高</span><span class="mySelector" data-select="height">6'1'</span></div>
+        </li>
+        <li>
+            <div class="item"><span>体重</span><span class="mySelector" data-select="weight">190bls</span></div>
+        </li>
+        <li onclick='clicked("sliderEditPage.html")'>
+            <div class="item"><span>个人说明</span><span class="personal_description">2031赛季常规赛最有价值球员2031赛季常规赛最有价值球员</span>
+            </div>
+        </li>
+        <li>last</li>
     </ul>
-</footer>
-
-<script>
-
-
-</script>
+</div>
+<div id="mySelectorMask" class="hide">
+</div>
 </body>
+<script type="text/javascript" src="../../js/immersed.js"></script>
+<script type="text/javascript" src="../../js/fastClick.js"></script>
+<script>
+    (function (w) {
+        var dcontent = document.getElementById("dcontent");
+        if (window.immersed) {
+            dcontent.style.height = dcontent.clientHeight - window.immersed + "px";
+        }
+        var pd = document.getElementsByClassName("personal_description").item(0);
+        if (pd.innerHTML.length >= 15) {
+            pd.innerHTML = pd.innerHTML.slice(0, 15) + "...";
+        }
+        //  点击可编辑
+        var plist = document.getElementById("plist");
+        plist.addEventListener("touchstart", editSet, false);
+
+        function editSet(e) {
+            for (var i = 0; i < e.target.classList.length; i++) {
+                if (e.target.classList[i] === "editabled") {
+                    e.target.isDblclick = e.target.isDblclick ? ++e.target.isDblclick : 2;
+                    if (e.target.isDblclick % 2) {
+                        e.target.setAttribute("contenteditable", true);
+                        e.target.focus();
+                        e.target.onblur = function () {
+                            delete  e.target.isDblclick;
+                            e.target.setAttribute("contenteditable", false);
+                        }
+                    }
+                }
+            }
+        }
+
+        console.log(w.dateToStr(new Date()))
+    }(window))
+    ;(function (w) {
+        var plist = document.getElementById("plist");
+        var mySelectorMask = document.getElementById("mySelectorMask");
+        plist.onclick = function (e) {
+            if (e.target.className === "mySelector") {
+                var data = mySelectorData[e.target.dataset["select"]];
+                new MySelector({parent: mySelectorMask, list: data, title: e.target.previousSibling.innerText});
+            }
+        };
+
+        function createMySelectorData() {
+            var data = {
+                sex: ['男', '女'],
+                birthday: ['男', '女'],
+                nationality: ['中国', '大明帝国', '大秦帝国', '河姆渡文明', '仰韶文化', '三星堆文化', '圣地'],
+                position: ['PG', 'PG/SG', 'SG', 'G/F', 'SF', 'SF/PF', 'PF', 'PF/C', "C"]
+            };
+            var strWeight = "";
+            var strHeight = "";
+            for (var i = 80, j = 50; i < 300; i += 5, j++) {
+                strWeight += (i + 'bls,');
+                strHeight += (j + ',');
+            }
+            //  体重
+            data.weight = strWeight.split(',');
+            data.weight.splice(data.weight.length - 1);
+            //  身高
+            strHeight = strHeight.substr(0, strHeight.length - 1);
+            data.height = strHeight.split(',');
+            for (var i = 0; i < data.height.length; i++) {
+                data.height[i] = getFeets(data.height[i]);
+            }
+
+            function getFeets(n) {
+                var a = parseInt(n / 12);
+                var b = n % 12;
+                return a + '\'' + b + '\"';
+            }
+
+            return data;
+        }
+
+        var mySelectorData = createMySelectorData();
+
+        function MySelector(options) {
+            console.log(options.title);
+            this.parent = options.parent;
+            this.el = document.createElement("div");
+            this.isOver = true;
+            this.timer = null;
+            this.init(options);
+        }
+
+        MySelector.prototype.init = function (options) {
+            this.parent.className = "show";
+            this.el.id = "mySelectorWrap";
+            this.el.style.bottom = "-160px";
+            this.list = '';
+            for (var i = 0; i < options.list.length; i++) {
+                this.list += "<li>" + options.list[i] + "</li>"
+            }
+            this.el.innerHTML = '<p class="mSP"><span>' + options.title + '</span><span>取消</span></p><div id="mySelectorList"><ul>' + this.list + '</ul></div><div id="mySelectorResult"><span class=" fr glyphicon glyphicon-ok"></span></div>';
+            this.parent.appendChild(this.el);
+            this.parentClimb(true);
+            var _this = this;
+            this.parent.onclick = function () {
+                if (_this.isOver) {
+                    _this.destroy()
+                }
+            };
+        };
+        MySelector.prototype.parentClimb = function (bool) {
+            var _this = this;
+            clearTimeout(this.timer);
+            if (bool) {
+                var bottom = parseInt(getComputedStyle(this.el).bottom) * 0.75;
+                if (bottom) {
+                    this.el.style.bottom = bottom + "px";
+                    this.timer = setTimeout(function () {
+                        _this.parentClimb(bool);
+                    }, 20);
+                    this.isOver = false;
+                } else {
+                    this.isOver = true;
+                }
+            } else {
+                var currentBottom = parseInt(getComputedStyle(this.el).bottom);
+                bottom = Math.round((160 + currentBottom) * (0.25)) + 1;
+                console.log(bottom)
+                if (bottom > 0) {
+                    this.el.style.bottom = (currentBottom - bottom) + "px";
+                    this.timer = setTimeout(function () {
+                        _this.parentClimb(bool);
+                    }, 20);
+                    this.isOver = false;
+                } else {
+                    this.parent.innerHTML = '';
+                    this.parent.className = "hide";
+                    this.isOver = true;
+                }
+            }
+        };
+        MySelector.prototype.destroy = function () {
+            this.el.style.bottom = "0px";
+            this.parentClimb(false);
+        }
+
+    }(window));
+</script>
+
 </html>
