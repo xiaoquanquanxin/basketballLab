@@ -125,11 +125,9 @@
                     poi.x = poi.x + poi.vx * poi.isXFoward;
                     poi.y = poi.y + poi.vy * poi.isYFoward;
                     if (isMouseClose <= this.closeDistance) {
-//                        console.log("进圈了");
                         poi.isInCircle = true;
                     }
                 } else {
-//                    console.log("再次进圈");
                     var tempData = {};
                     tempData.x = poi.x + poi.vx * poi.isXFoward;
                     tempData.y = poi.y + poi.vy * poi.isYFoward;
