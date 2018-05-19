@@ -55,30 +55,16 @@
             background: white;
             border-color: rgb(234, 234, 234);
             border-width: 1px 0;
+            padding-left: 10px;
+            padding-right: 10px;
         }
-        #plist li {
-            padding: 0.8em;
-            border-bottom: 1px solid #eaeaea;
+        #plist * {
+
         }
-        #plist li:active {
-            background: rgba(199, 223, 255, 0.47);
-        }
-        #plist .item {
-            display: table;
+        textarea {
             width: 100%;
-        }
-        #plist .item.no_bg {
-            background: transparent;
-        }
-        #plist .item span {
-            display: table-cell;
-            vertical-align: middle;
-        }
-        #plist .item span:first-child {
-            width: 5em;
-        }
-        #plist .editabled:focus {
-            outline: none;
+            border: none;
+            resize: none;
         }
     </style>
 </head>
@@ -89,17 +75,22 @@
     <div class="nvbt idoc hide"></div>
 </header>
 <div id="dcontent" class="dcontent">
-    <ul id="plist">
-        <li>
-            <div class="item no_bg"><span>个人说明</span><span class="editabled">非我放假哦我解耦我阿尔法就饿哦我安慰法奇偶IE我</span></div>
-        </li>
-    </ul>
+    <div id="plist">
+        <p>个人说明</p>
+        <textarea placeholder="个人说明" cols="10" rows="10"></textarea>
+        <p class="fr" style="color: grey;font-size: 14px;"><span>还可以输入</span><b id="limitCount">0</b><span>个字</span></p>
+    </div>
 </div>
 </body>
 <script type="text/javascript" src="../../js/immersed.js"></script>
 <script type="text/javascript" src="../../js/fastClick.js"></script>
 <script>
-
+    var textarea = document.getElementsByTagName("textarea").item(0);
+    var limitCount =document.getElementById("limitCount");
+    textarea.oninput = function (e) {
+        this.value = this.value.substr(0, 200);
+        limitCount.innerHTML =  200 - this.value.length;
+    }
 </script>
 
 </html>

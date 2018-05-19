@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
-    <title>Hello H5+</title>
+    <title>每日训练</title>
     <script type="text/javascript" src="../../js/common.js"></script>
     <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
     <style type="text/css">
@@ -41,6 +41,42 @@
 
         }
     </style>
+    <style>
+        #ping {
+            padding: 0 15px;
+        }
+        #pingList {
+            padding-left: 0;
+            list-style: none;
+        }
+        #pingList > li {
+            padding: 5px 0;
+        }
+        #pingList div {
+            display: table;
+            width: 100%;
+        }
+        #pingList div > span {
+            display: table-cell;
+            vertical-align: middle;
+            text-wrap: avoid;
+            text-align: left;
+        }
+        #pingList .number {
+            width: 10%;
+            position: relative;
+        }
+        #pingList .number b{
+            position: absolute;
+            right:10px;
+            top:0;
+        }
+        #pingList .text {
+            width: 90%;
+        }
+
+
+    </style>
 </head>
 <body>
 <header id="header">
@@ -63,24 +99,44 @@
                 <td>命中率</td>
             </tr>
             <tr class="ditem">
-                <td>1</td>
+                <td>中投</td>
                 <td>2</td>
                 <td>2</td>
                 <td>2</td>
             </tr>
             <tr class="ditem">
-                <td>2</td>
+                <td>上篮</td>
                 <td>2</td>
                 <td>2</td>
                 <td>2</td>
             </tr>
             <tr class="ditem">
-                <td>2</td>
+                <td>背身</td>
                 <td>2</td>
                 <td>2</td>
                 <td></td>
             </tr>
+            <tr class="ditem">
+                <td>总结</td>
+                <td>12</td>
+                <td>22</td>
+                <td>32</td>
+            </tr>
         </table>
+    </div>
+    <div id="ping"><h3>每日自评</h3>
+        <ul id="pingList">
+            <li>
+                <div><span class="number"><b>1</b></span><span class="text">fewafrergrgsdfasdf   dg erg dgd  gdefgrth分额挖坟啊艾尔安抚艾尔无法发我 erthyghj r wre</span>
+                </div>
+            </li>
+            <li>
+                <div><span class="number"><b>2</b></span><span class="text">111111111</span></div>
+            </li>
+            <li>
+                <div><span class="number"><b>3</b></span><span class="text">111111111</span></div>
+            </li>
+        </ul>
     </div>
 </div>
 <div id="canvasWrap"></div>
